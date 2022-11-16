@@ -8,13 +8,6 @@ import {
   PhonebookFormInput,
 } from './Phonebook.styled';
 
-// handleSubmit,
-// nameId,
-// name,
-// number,
-// handleChange,
-// telId,
-
 class ContactForm extends Component {
   state = { name: '', number: '', id: '' };
 
@@ -46,7 +39,7 @@ class ContactForm extends Component {
     //   return;
     // }
 
-    this.props.changeContacts(this.state);
+    this.props.onChangeContacts(this.state);
     // this.props.onSubmit(this.state);
 
     this.reset();
@@ -88,5 +81,5 @@ class ContactForm extends Component {
 export default ContactForm;
 
 ContactForm.propTypes = {
-  changeContacts: PropTypes.func.isRequired,
+  onChangeContacts: PropTypes.func.isRequired,
 };

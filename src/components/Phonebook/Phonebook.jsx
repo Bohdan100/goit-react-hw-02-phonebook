@@ -29,7 +29,7 @@ export class Phonebook extends Component {
     const { contacts } = this.state;
 
     const errorArray = contacts.filter(
-      contact => contact.name === newContact.name
+      contact => contact.name.toLowerCase() === newContact.name.toLowerCase()
     );
 
     if (errorArray.length === 0) {
@@ -71,7 +71,7 @@ export class Phonebook extends Component {
       <>
         <PhonebookTitle>Phonebook</PhonebookTitle>
 
-        <ContactForm onSubmit={this.changeContacts} />
+        <ContactForm onChangeContacts={this.changeContacts} />
         {/* <ContactForm onSubmit={values => this.changeContacts(values)} /> */}
 
         <ContactsTitle>Contacts</ContactsTitle>
