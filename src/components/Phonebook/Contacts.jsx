@@ -6,15 +6,23 @@ import ContactsItem from './ContactsItem';
 
 const Contacts = ({ filteredContacts, onDeleteContact }) => (
   <ContactsList>
-    {filteredContacts.map(contact => ContactsItem(contact, onDeleteContact))}
+    {filteredContacts.map(({ id, name, number }) => (
+      <ContactsItem
+        key={id}
+        name={name}
+        number={number}
+        onDeleteContact={onDeleteContact}
+      />
+    ))}
   </ContactsList>
 );
 
 Contacts.propTypes = {
   filteredContacts: PropTypes.arrayOf(
     PropTypes.shape({
-      optionalProperty: PropTypes.number,
-      requiredProperty: PropTypes.string,
+      number: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      id: PropTypes.string,
     })
   ),
   onDeleteContact: PropTypes.func.isRequired,
