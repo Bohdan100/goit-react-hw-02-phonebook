@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import shortid from 'shortid';
+
 import {
   PhonebookForm,
   PhonebookFormButton,
@@ -18,15 +18,14 @@ class ContactForm extends Component {
     this.setState({
       name: '',
       number: '',
-      id: '',
     });
   };
 
   handleChange = e => {
     e.preventDefault();
-    const { name, value, id } = e.target;
+    const { name, value } = e.target;
 
-    e.target.name === 'name' && this.setState({ id, [name]: value });
+    e.target.name === 'name' && this.setState({ [name]: value });
     e.target.name === 'number' && this.setState({ [name]: value });
   };
 
@@ -79,7 +78,3 @@ class ContactForm extends Component {
 }
 
 export default ContactForm;
-
-ContactForm.propTypes = {
-  onChangeContacts: PropTypes.func.isRequired,
-};

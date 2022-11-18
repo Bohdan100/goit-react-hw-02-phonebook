@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { ToastContainer } from 'react-toastify';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import shortid from 'shortid';
 
 import ContactForm from './ContactForm';
 import Contacts from './Contacts';
@@ -34,7 +35,7 @@ export class Phonebook extends Component {
 
     if (errorArray.length === 0) {
       this.setState(({ contacts }) => ({
-        contacts: [newContact, ...contacts],
+        contacts: [{ ...newContact, id: shortid.generate() }, ...contacts],
       }));
       toast.success('You add a new contact in your Phonebook!');
     } else {
