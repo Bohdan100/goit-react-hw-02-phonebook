@@ -9,6 +9,7 @@ const Contacts = ({ filteredContacts, onDeleteContact }) => (
     {filteredContacts.map(({ id, name, number }) => (
       <ContactsItem
         key={id}
+        id={id}
         name={name}
         number={number}
         onDeleteContact={onDeleteContact}
@@ -20,7 +21,7 @@ const Contacts = ({ filteredContacts, onDeleteContact }) => (
 Contacts.propTypes = {
   filteredContacts: PropTypes.arrayOf(
     PropTypes.shape({
-      number: PropTypes.number.isRequired,
+      number: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
       id: PropTypes.string,
     })

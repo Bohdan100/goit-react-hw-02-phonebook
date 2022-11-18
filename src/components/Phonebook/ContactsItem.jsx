@@ -7,7 +7,7 @@ import {
   ContactsButtonDelete,
 } from './Phonebook.styled';
 
-const ContactsItem = ({ id, name, number }, onDeleteContact) => (
+const ContactsItem = ({ id, name, number, onDeleteContact }) => (
   <ContactsListItem>
     <ContactsListText>
       {name}: {number}
@@ -21,7 +21,7 @@ const ContactsItem = ({ id, name, number }, onDeleteContact) => (
 
 ContactsItem.propTypes = {
   contact: PropTypes.shape({
-    number: PropTypes.number.isRequired,
+    number: PropTypes.string.isRequired,
     name: PropTypes.string.isRequired,
     id: PropTypes.string,
   }),
