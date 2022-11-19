@@ -20,11 +20,9 @@ const ContactsItem = ({ id, name, number, onDeleteContact }) => (
 );
 
 ContactsItem.propTypes = {
-  contact: PropTypes.shape({
-    number: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    id: PropTypes.string,
-  }),
+  id: PropTypes.string.isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
   onDeleteContact: PropTypes.func.isRequired,
 };
 

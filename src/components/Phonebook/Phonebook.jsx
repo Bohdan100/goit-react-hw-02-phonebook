@@ -20,12 +20,6 @@ export class Phonebook extends Component {
     filter: '',
   };
 
-  reset = () => {
-    this.setState({
-      filter: '',
-    });
-  };
-
   changeContacts = newContact => {
     const { contacts } = this.state;
 
@@ -41,8 +35,6 @@ export class Phonebook extends Component {
     } else {
       toast.info('This contact is already in your Phonebook!');
     }
-
-    this.reset();
   };
 
   changeFilter = e => {

@@ -23,7 +23,7 @@ Contacts.propTypes = {
     PropTypes.shape({
       number: PropTypes.string.isRequired,
       name: PropTypes.string.isRequired,
-      id: PropTypes.string,
+      id: PropTypes.string.isRequired,
     })
   ),
   onDeleteContact: PropTypes.func.isRequired,

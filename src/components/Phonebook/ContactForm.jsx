@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import shortid from 'shortid';
 
 import {
@@ -9,7 +10,9 @@ import {
 } from './Phonebook.styled';
 
 class ContactForm extends Component {
-  state = { name: '', number: '', id: '' };
+  static onChangeContacts = PropTypes.func.isRequired;
+
+  state = { name: '', number: '' };
 
   nameId = shortid.generate();
   telId = shortid.generate();
@@ -23,20 +26,14 @@ class ContactForm extends Component {
 
   handleChange = e => {
     e.preventDefault();
-    const { name, value } = e.target;
 
-    e.target.name === 'name' && this.setState({ [name]: value });
-    e.target.name === 'number' && this.setState({ [name]: value });
+    const { name, value } = e.target;
+    name === 'name' && this.setState({ [name]: value });
+    name === 'number' && this.setState({ [name]: value });
   };
 
   handleSubmit = e => {
     e.preventDefault();
-
-    // const enteredName = e.target.elements.name.value.trim();
-    // const enteredPhone = e.target.elements.number.value.trim();
-    // if (enteredName === '' || enteredPhone === '') {
-    //   return;
-    // }
 
     this.props.onChangeContacts(this.state);
     // this.props.onSubmit(this.state);
